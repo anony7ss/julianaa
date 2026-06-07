@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heart, Mail, Search } from "lucide-react";
-import { daysSince, formatDate } from "@/lib/utils";
-import { relationshipStartDate } from "@/data/seed";
+import { formatDate } from "@/lib/utils";
+import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -19,7 +19,6 @@ const navItems = [
 ];
 
 export function PublicShell({ children }: { children: React.ReactNode }) {
-  const days = daysSince(relationshipStartDate);
   const now = new Date();
   const today = formatDate(now);
   const weekday = new Intl.DateTimeFormat("pt-BR", { weekday: "long" }).format(now);
@@ -31,7 +30,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
           <div className="flex min-w-0 items-center gap-3">
             <span className="rounded-md bg-[var(--wine)] px-2.5 py-1 font-semibold text-white">Plantao</span>
             <span className="truncate normal-case tracking-normal">
-              {today}: {days.toLocaleString("pt-BR")} dias de nos. E ainda me escolho.
+              {today}: {relationshipTypeLabel.toLowerCase()} desde {relationshipStartLabel}. Sem dia exato, mas oficial.
             </span>
           </div>
           <Link

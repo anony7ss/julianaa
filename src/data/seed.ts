@@ -7,7 +7,8 @@ import type {
   TimelineEvent,
 } from "@/types/content";
 
-export const relationshipStartDate = "2016-08-14";
+export const relationshipStartLabel = "dezembro de 2025";
+export const relationshipTypeLabel = "Namoro web";
 
 export const categories: Category[] = [
   {
@@ -30,7 +31,7 @@ export const categories: Category[] = [
     id: "33333333-3333-4333-8333-333333333333",
     name: "Crimes de Fofura",
     slug: "crimes-de-fofura",
-    description: "Casos gravissimos de charme, sorriso e abraco.",
+    description: "Casos gravissimos de charme, sorriso e chamego digital.",
     color: "#6f0b18",
     createdAt: "2026-06-07T00:00:00.000Z",
   },
@@ -62,7 +63,7 @@ export const categories: Category[] = [
     id: "77777777-7777-4777-8777-777777777777",
     name: "Momentos Historicos",
     slug: "momentos-historicos",
-    description: "Arquivo permanente das cenas que viraram memoria.",
+    description: "Arquivo permanente de mensagens, prints e memorias online.",
     color: "#443a3d",
     createdAt: "2026-06-07T00:00:00.000Z",
   },
@@ -128,7 +129,7 @@ export const posts: Post[] = [
     slug: "plantao-saudade-78-vezes",
     subtitle: "Contador interno precisou ser recalibrado depois de nova crise de carinho.",
     content:
-      "A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.\n\nO Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de Juliana por perto na memoria e longe no momento.\n\nA recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de um abraco demorado.",
+      "A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.\n\nO Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de namoro web: Juliana por perto na memoria e longe na tela.\n\nA recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de chamada quando der.",
     coverImageUrl: "/images/cat-love-letters.png",
     categoryId: categories[3].id,
     authorId: authors[1].id,
@@ -168,11 +169,11 @@ export const posts: Post[] = [
   },
   {
     id: "40404040-4040-4040-8040-404040404040",
-    title: "Especialistas confirmam que abraco da Juu resolve 99% dos problemas",
-    slug: "abraco-da-juu-resolve-problemas",
-    subtitle: "O 1% restante pede outro abraco.",
+    title: "Especialistas confirmam que mensagem da Juu resolve 99% dos problemas",
+    slug: "mensagem-da-juu-resolve-problemas",
+    subtitle: "O 1% restante pede outra chamada.",
     content:
-      "Um estudo conduzido sem nenhuma neutralidade emocional constatou que o abraco da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.\n\nA metodologia incluiu memoria afetiva, vontade de ficar perto e uma saudade que nao colabora.\n\nO resultado foi unanime: abraco da Juu deveria ser patrimonio oficial.",
+      "Um estudo conduzido sem nenhuma neutralidade emocional constatou que uma mensagem da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.\n\nA metodologia incluiu conversa online, vontade de chamada e uma saudade de namoro web que nao colabora.\n\nO resultado foi unanime: mensagem da Juu deveria ser patrimonio oficial.",
     coverImageUrl: "/images/cat-rose-nap.png",
     categoryId: categories[4].id,
     authorId: authors[2].id,
@@ -186,7 +187,7 @@ export const posts: Post[] = [
     scheduledAt: null,
     category: categories[4],
     author: authors[2],
-    tags: ["abraco", "oficial", "bem-estar"],
+    tags: ["mensagem", "oficial", "bem-estar"],
   },
   {
     id: "50505050-5050-4050-8050-505050505050",
@@ -194,7 +195,7 @@ export const posts: Post[] = [
     slug: "juliana-awards-pessoa-mais-incrivel",
     subtitle: "A concorrencia pediu recontagem, mas o resultado continuou igual.",
     content:
-      "Pelo decimo ano consecutivo, a categoria Pessoa Mais Incrivel teve a mesma vencedora: Juliana.\n\nA cerimonia contou com aplausos, risadas e aquele orgulho bobo de quem sabe que esta vendo uma raridade.\n\nA organizacao informou que o trofeu sera entregue em forma de carinho, elogios e uma materia especial.",
+      "Desde dezembro de 2025, a categoria Pessoa Mais Incrivel tem uma favorita absoluta: Juliana.\n\nA cerimonia contou com mensagens, risadas e aquele orgulho bobo de quem sabe que encontrou uma raridade mesmo a distancia.\n\nA organizacao informou que o trofeu sera entregue em forma de carinho, elogios e uma materia especial.",
     coverImageUrl: "/images/cat-news-editor.png",
     categoryId: categories[5].id,
     authorId: authors[0].id,
@@ -237,24 +238,24 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: "80000000-0000-4000-8000-000000000001",
     title: "O primeiro capitulo",
-    description: "O dia em que a historia ganhou manchete principal.",
-    eventDate: "2016-08-14",
+    description: "Dezembro de 2025: o mes em que a conversa virou manchete principal.",
+    eventDate: "2025-12-01",
     imageUrl: "/images/cat-news-editor.png",
     createdAt: "2026-06-07T00:00:00.000Z",
   },
   {
     id: "80000000-0000-4000-8000-000000000002",
-    title: "A primeira saudade oficial",
-    description: "Quando a redacao percebeu que ficar longe seria pauta recorrente.",
-    eventDate: "2017-01-08",
+    title: "A primeira saudade web oficial",
+    description: "Quando a redacao percebeu que namoro web tambem vira pauta urgente.",
+    eventDate: "2026-01-01",
     imageUrl: "/images/cat-love-letters.png",
     createdAt: "2026-06-07T00:00:00.000Z",
   },
   {
     id: "80000000-0000-4000-8000-000000000003",
-    title: "Arquivo de momentos historicos",
-    description: "Pequenas cenas que viraram colecao: risadas, cafe, viagem e abracos.",
-    eventDate: "2024-10-21",
+    title: "Primeiro encontro em pauta",
+    description: "A editoria ainda nao sabe quando vai acontecer, mas ja trata o assunto como cobertura especial.",
+    eventDate: "2026-06-01",
     imageUrl: "/images/cat-rose-nap.png",
     createdAt: "2026-06-07T00:00:00.000Z",
   },

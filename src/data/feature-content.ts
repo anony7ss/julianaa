@@ -9,7 +9,7 @@ export const catGallery = [
     src: "/images/cat-love-letters.png",
     title: "Gato das cartas",
     mood: "saudade",
-    description: "Para materias dramaticas, fofas e com vontade de abraco.",
+    description: "Para materias dramaticas, fofas e com vontade de chamada.",
   },
   {
     src: "/images/cat-news-editor.png",
@@ -27,8 +27,8 @@ export const catGallery = [
 
 export const surpriseHeadlines = [
   "Exclusivo: Juliana sorri e previsao do dia melhora imediatamente",
-  "Fontes afirmam que saudade aumentou apos foto antiga reaparecer",
-  "Namorado promete cafe, carinho e elogios sem limite de caracteres",
+  "Fontes afirmam que saudade aumentou apos mensagem antiga reaparecer",
+  "Namorado promete chamada, carinho e elogios sem limite de caracteres",
   "Departamento de Fofura confirma: Juu segue sendo assunto principal",
   "Plantao informa que pensar na Juu segue altamente recomendado",
 ];
@@ -37,7 +37,7 @@ export const loveLetters = [
   {
     title: "Carta de domingo",
     body:
-      "Hoje eu so queria deixar registrado que voce continua sendo meu lugar favorito de voltar, mesmo quando o dia parece comum demais.",
+      "Hoje eu so queria deixar registrado que voce continua sendo a conversa que eu mais gosto de encontrar, mesmo quando o dia parece comum demais.",
   },
   {
     title: "Carta para guardar",

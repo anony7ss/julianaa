@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CalendarDays } from "lucide-react";
 import { PublicPageHeader } from "@/components/public/PublicPageHeader";
 import { getTimelineEvents } from "@/lib/data";
-import { formatDate } from "@/lib/utils";
+import { formatTimelineDate } from "@/lib/utils";
 
 export const metadata = {
   title: "Linha do Tempo",
@@ -32,7 +32,7 @@ export default async function TimelinePage() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="public-label mt-2 text-[10px] text-[var(--muted)]">
-                {formatDate(event.eventDate)}
+                {formatTimelineDate(event.eventDate)}
               </p>
             </div>
             <div>

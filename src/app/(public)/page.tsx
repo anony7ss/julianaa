@@ -4,10 +4,9 @@ import { ArticleCard } from "@/components/public/ArticleCard";
 import { HomeTools } from "@/components/public/HomeTools";
 import { SectionTitle } from "@/components/public/SectionTitle";
 import { SurpriseButton } from "@/components/public/SurpriseButton";
-import { relationshipStartDate } from "@/data/seed";
+import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
 import { getCategories, getLoveQuotes, getPublishedPosts } from "@/lib/data";
 import { getAllTags, getCategoryCounts, getDailyPost } from "@/lib/discovery";
-import { daysSince } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +23,6 @@ export default async function HomePage() {
   const dailyPost = getDailyPost(posts);
   const tags = getAllTags(posts).slice(0, 8);
   const categoryCounts = getCategoryCounts(posts, categories);
-  const days = daysSince(relationshipStartDate);
 
   return (
     <div className="mx-auto grid max-w-[1500px] gap-5 px-4 py-5 sm:px-6 2xl:grid-cols-[16rem_minmax(0,1fr)_18rem] 2xl:py-7">
@@ -59,7 +57,7 @@ export default async function HomePage() {
           <p className="public-label text-[var(--muted)]">Agora ha pouco</p>
           <h2 className="font-editorial mt-3 text-[2rem] leading-[0.98]">Alerta de saudade nivel maximo!</h2>
           <p className="mt-4 text-sm leading-6 text-[var(--ink-soft)]">
-            Causada por distancia bobinha e pensamentos em voce.
+            Causada por distancia de namoro web e pensamentos em voce.
           </p>
           <Link
             href="/declaracao"
@@ -152,9 +150,11 @@ export default async function HomePage() {
 
       <aside className="order-3 grid min-w-0 content-start gap-5">
         <section className="public-panel p-5 text-center">
-          <p className="public-label text-[var(--wine)]">Dias juntos</p>
-          <p className="font-editorial mt-3 text-6xl leading-none">{days.toLocaleString("pt-BR")}</p>
-          <p className="mt-2 text-sm text-[var(--muted)]">desde 14.08.2016</p>
+          <p className="public-label text-[var(--wine)]">Desde {relationshipStartLabel}</p>
+          <p className="font-editorial mt-3 text-[clamp(3rem,4.8vw,4.4rem)] leading-none">
+            {relationshipTypeLabel}
+          </p>
+          <p className="mt-2 text-sm text-[var(--muted)]">sem dia exato, mas com pauta fixa</p>
         </section>
 
         <HomeTools quotes={quotes} />

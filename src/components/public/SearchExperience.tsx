@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { CalendarDays, FileText, Search, Tags } from "lucide-react";
 import { getAllTags } from "@/lib/discovery";
-import { formatDate } from "@/lib/utils";
+import { formatDate, formatTimelineDate } from "@/lib/utils";
 import type { Category, LoveQuote, Post, TimelineEvent } from "@/types/content";
 
 type SearchResult =
@@ -69,7 +69,7 @@ export function SearchExperience({
         title: event.title,
         href: "/linha-do-tempo",
         description: event.description ?? "Evento da linha do tempo.",
-        meta: formatDate(event.eventDate),
+        meta: formatTimelineDate(event.eventDate),
       })),
     ];
 

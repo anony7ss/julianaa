@@ -6,8 +6,8 @@ import type { LoveQuote } from "@/types/content";
 
 const generatedHeadlines = [
   "Exclusivo: Juliana sorri e previsao do dia melhora imediatamente",
-  "Fontes afirmam que saudade aumentou apos foto antiga reaparecer",
-  "Namorado promete cafe, carinho e elogios sem limite de caracteres",
+  "Fontes afirmam que saudade aumentou apos mensagem antiga reaparecer",
+  "Namorado promete chamada, carinho e elogios sem limite de caracteres",
   "Departamento de Fofura confirma: Juu segue sendo assunto principal",
 ];
 

@@ -3,10 +3,10 @@ import Link from "next/link";
 import { CalendarHeart, Cat, Newspaper } from "lucide-react";
 import { PublicPageHeader } from "@/components/public/PublicPageHeader";
 import { catGallery } from "@/data/feature-content";
-import { relationshipStartDate } from "@/data/seed";
+import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
 import { getLoveQuotes, getPublishedPosts } from "@/lib/data";
 import { getDailyPost } from "@/lib/discovery";
-import { daysSince, formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 export const metadata = {
   title: "Hoje no Juu News",
@@ -21,7 +21,6 @@ export default async function TodayPage() {
   const daySeed = today.getUTCDate() + today.getUTCMonth() + today.getUTCFullYear();
   const quote = quotes[daySeed % Math.max(1, quotes.length)]?.quote ?? "Toda noticia boa me lembra voce.";
   const cat = catGallery[daySeed % catGallery.length];
-  const days = daysSince(relationshipStartDate, today);
 
   return (
     <div className="public-page">
@@ -51,8 +50,11 @@ export default async function TodayPage() {
         <section className="grid gap-6">
           <div className="public-panel p-6">
             <CalendarHeart className="h-6 w-6 text-[var(--wine)]" />
-            <p className="font-editorial mt-4 text-6xl leading-none">{days.toLocaleString("pt-BR")}</p>
-            <p className="mt-2 text-sm text-[var(--muted)]">dias desde 14.08.2016</p>
+            <p className="font-editorial mt-4 text-[clamp(3rem,5vw,4.6rem)] leading-none">
+              {relationshipTypeLabel}
+            </p>
+            <p className="mt-2 text-sm text-[var(--muted)]">desde {relationshipStartLabel}</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">primeiro encontro ainda sem data marcada</p>
           </div>
 
           <div className="paper-texture public-soft-panel p-6 shadow-sm">

@@ -7,11 +7,11 @@
 insert into public.categories (id, name, slug, description, color) values
   ('11111111-1111-4111-8111-111111111111', 'Ultima Hora', 'ultima-hora', 'Manchetes importantes demais para esperar.', '#971222'),
   ('22222222-2222-4222-8222-222222222222', 'Fofocas do Amor', 'fofocas-do-amor', 'Tudo que a redacao descobriu sobre esse casal.', '#c75064'),
-  ('33333333-3333-4333-8333-333333333333', 'Crimes de Fofura', 'crimes-de-fofura', 'Casos gravissimos de charme, sorriso e abraco.', '#6f0b18'),
+  ('33333333-3333-4333-8333-333333333333', 'Crimes de Fofura', 'crimes-de-fofura', 'Casos gravissimos de charme, sorriso e chamego digital.', '#6f0b18'),
   ('44444444-4444-4444-8444-444444444444', 'Plantao Saudade', 'plantao-saudade', 'Cobertura ininterrupta da falta que a Juu faz.', '#a67437'),
   ('55555555-5555-4555-8555-555555555555', 'Declaracoes Oficiais', 'declaracoes-oficiais', 'Comunicados oficiais do coracao.', '#25384a'),
   ('66666666-6666-4666-8666-666666666666', 'Juliana Awards', 'juliana-awards', 'Premiacoes em que a Juliana ganha de novo.', '#6c7f70'),
-  ('77777777-7777-4777-8777-777777777777', 'Momentos Historicos', 'momentos-historicos', 'Arquivo permanente das cenas que viraram memoria.', '#443a3d')
+  ('77777777-7777-4777-8777-777777777777', 'Momentos Historicos', 'momentos-historicos', 'Arquivo permanente de mensagens, prints e memorias online.', '#443a3d')
 on conflict (id) do update set
   name = excluded.name,
   slug = excluded.slug,
@@ -57,8 +57,8 @@ insert into public.posts (
     'plantao-saudade-78-vezes',
     'Contador interno precisou ser recalibrado depois de nova crise de carinho.',
     'A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.' || E'\n\n' ||
-    'O Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de Juliana por perto na memoria e longe no momento.' || E'\n\n' ||
-    'A recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de um abraco demorado.',
+    'O Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de namoro web: Juliana por perto na memoria e longe na tela.' || E'\n\n' ||
+    'A recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de chamada quando der.',
     '/images/cat-love-letters.png',
     '44444444-4444-4444-8444-444444444444',
     'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
@@ -91,12 +91,12 @@ insert into public.posts (
   ),
   (
     '40404040-4040-4040-8040-404040404040',
-    'Especialistas confirmam que abraco da Juu resolve 99% dos problemas',
-    'abraco-da-juu-resolve-problemas',
-    'O 1% restante pede outro abraco.',
-    'Um estudo conduzido sem nenhuma neutralidade emocional constatou que o abraco da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.' || E'\n\n' ||
-    'A metodologia incluiu memoria afetiva, vontade de ficar perto e uma saudade que nao colabora.' || E'\n\n' ||
-    'O resultado foi unanime: abraco da Juu deveria ser patrimonio oficial.',
+    'Especialistas confirmam que mensagem da Juu resolve 99% dos problemas',
+    'mensagem-da-juu-resolve-problemas',
+    'O 1% restante pede outra chamada.',
+    'Um estudo conduzido sem nenhuma neutralidade emocional constatou que uma mensagem da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.' || E'\n\n' ||
+    'A metodologia incluiu conversa online, vontade de chamada e uma saudade de namoro web que nao colabora.' || E'\n\n' ||
+    'O resultado foi unanime: mensagem da Juu deveria ser patrimonio oficial.',
     '/images/cat-rose-nap.png',
     '55555555-5555-4555-8555-555555555555',
     'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
@@ -104,7 +104,7 @@ insert into public.posts (
     589,
     true,
     false,
-    array['abraco', 'oficial', 'bem-estar'],
+    array['mensagem', 'oficial', 'bem-estar'],
     '2026-06-04T12:00:00.000Z',
     null
   ),
@@ -113,8 +113,8 @@ insert into public.posts (
     'Juliana Awards: premio de pessoa mais incrivel vai para Juliana novamente',
     'juliana-awards-pessoa-mais-incrivel',
     'A concorrencia pediu recontagem, mas o resultado continuou igual.',
-    'Pelo decimo ano consecutivo, a categoria Pessoa Mais Incrivel teve a mesma vencedora: Juliana.' || E'\n\n' ||
-    'A cerimonia contou com aplausos, risadas e aquele orgulho bobo de quem sabe que esta vendo uma raridade.' || E'\n\n' ||
+    'Desde dezembro de 2025, a categoria Pessoa Mais Incrivel tem uma favorita absoluta: Juliana.' || E'\n\n' ||
+    'A cerimonia contou com mensagens, risadas e aquele orgulho bobo de quem sabe que encontrou uma raridade mesmo a distancia.' || E'\n\n' ||
     'A organizacao informou que o trofeu sera entregue em forma de carinho, elogios e uma materia especial.',
     '/images/cat-news-editor.png',
     '66666666-6666-4666-8666-666666666666',
@@ -150,9 +150,9 @@ insert into public.love_quotes (id, quote, active) values
 on conflict (id) do update set quote = excluded.quote, active = excluded.active;
 
 insert into public.timeline_events (id, title, description, event_date, image_url) values
-  ('80000000-0000-4000-8000-000000000001', 'O primeiro capitulo', 'O dia em que a historia ganhou manchete principal.', '2016-08-14', '/images/cat-news-editor.png'),
-  ('80000000-0000-4000-8000-000000000002', 'A primeira saudade oficial', 'Quando a redacao percebeu que ficar longe seria pauta recorrente.', '2017-01-08', '/images/cat-love-letters.png'),
-  ('80000000-0000-4000-8000-000000000003', 'Arquivo de momentos historicos', 'Pequenas cenas que viraram colecao: risadas, cafe, viagem e abracos.', '2024-10-21', '/images/cat-rose-nap.png')
+  ('80000000-0000-4000-8000-000000000001', 'O primeiro capitulo', 'Dezembro de 2025: o mes em que a conversa virou manchete principal.', '2025-12-01', '/images/cat-news-editor.png'),
+  ('80000000-0000-4000-8000-000000000002', 'A primeira saudade web oficial', 'Quando a redacao percebeu que namoro web tambem vira pauta urgente.', '2026-01-01', '/images/cat-love-letters.png'),
+  ('80000000-0000-4000-8000-000000000003', 'Primeiro encontro em pauta', 'A editoria ainda nao sabe quando vai acontecer, mas ja trata o assunto como cobertura especial.', '2026-06-01', '/images/cat-rose-nap.png')
 on conflict (id) do update set
   title = excluded.title,
   description = excluded.description,

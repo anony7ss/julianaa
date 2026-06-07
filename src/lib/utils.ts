@@ -23,6 +23,23 @@ export function formatDate(date: string | Date) {
   }).format(new Date(date));
 }
 
+export function formatMonthYear(date: string | Date) {
+  return new Intl.DateTimeFormat("pt-BR", {
+    month: "long",
+    year: "numeric",
+  }).format(new Date(date));
+}
+
+export function formatTimelineDate(date: string) {
+  const localDate = new Date(`${date}T00:00:00-03:00`);
+
+  if (localDate.getDate() === 1) {
+    return formatMonthYear(localDate);
+  }
+
+  return formatDate(localDate);
+}
+
 export function daysSince(isoDate: string, now = new Date()) {
   const start = new Date(`${isoDate}T00:00:00-03:00`);
   const diff = now.getTime() - start.getTime();
