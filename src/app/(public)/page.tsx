@@ -4,7 +4,7 @@ import { ArticleCard } from "@/components/public/ArticleCard";
 import { HomeTools } from "@/components/public/HomeTools";
 import { SectionTitle } from "@/components/public/SectionTitle";
 import { SurpriseButton } from "@/components/public/SurpriseButton";
-import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
+import { relationshipStartLabel } from "@/data/seed";
 import { getCategories, getLoveQuotes, getPublishedPosts } from "@/lib/data";
 import { getAllTags, getCategoryCounts, getDailyPost } from "@/lib/discovery";
 
@@ -57,7 +57,7 @@ export default async function HomePage() {
           <p className="public-label text-[var(--muted)]">Agora ha pouco</p>
           <h2 className="font-editorial mt-3 text-[2rem] leading-[0.98]">Alerta de saudade nivel maximo!</h2>
           <p className="mt-4 text-sm leading-6 text-[var(--ink-soft)]">
-            Causada por distancia de namoro web e pensamentos em voce.
+            Causada por distancia e pensamentos em voce.
           </p>
           <Link
             href="/declaracao"
@@ -152,7 +152,7 @@ export default async function HomePage() {
         <section className="public-panel p-5 text-center">
           <p className="public-label text-[var(--wine)]">Desde {relationshipStartLabel}</p>
           <p className="font-editorial mt-3 text-[clamp(3rem,4.8vw,4.4rem)] leading-none">
-            {relationshipTypeLabel}
+            Nossa historia
           </p>
           <p className="mt-2 text-sm text-[var(--muted)]">sem dia exato, mas com pauta fixa</p>
         </section>

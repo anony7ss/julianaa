@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heart, Mail, Search } from "lucide-react";
 import { formatDate } from "@/lib/utils";
-import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
+import { relationshipStartLabel } from "@/data/seed";
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -30,7 +30,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
           <div className="flex min-w-0 items-center gap-3">
             <span className="rounded-md bg-[var(--wine)] px-2.5 py-1 font-semibold text-white">Plantao</span>
             <span className="truncate normal-case tracking-normal">
-              {today}: {relationshipTypeLabel.toLowerCase()} desde {relationshipStartLabel}. Sem dia exato, mas oficial.
+              {today}: nossa historia comecou em {relationshipStartLabel}. Sem dia exato, mas oficial.
             </span>
           </div>
           <Link

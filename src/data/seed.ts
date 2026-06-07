@@ -8,7 +8,6 @@ import type {
 } from "@/types/content";
 
 export const relationshipStartLabel = "dezembro de 2025";
-export const relationshipTypeLabel = "Namoro web";
 
 export const categories: Category[] = [
   {
@@ -129,7 +128,7 @@ export const posts: Post[] = [
     slug: "plantao-saudade-78-vezes",
     subtitle: "Contador interno precisou ser recalibrado depois de nova crise de carinho.",
     content:
-      "A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.\n\nO Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de namoro web: Juliana por perto na memoria e longe na tela.\n\nA recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de chamada quando der.",
+      "A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.\n\nO Departamento de Fofura informou que o indice e considerado alto, mas esperado em uma historia que ainda acontece a distancia: Juliana por perto na memoria e longe na tela.\n\nA recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de chamada quando der.",
     coverImageUrl: "/images/cat-love-letters.png",
     categoryId: categories[3].id,
     authorId: authors[1].id,
@@ -173,7 +172,7 @@ export const posts: Post[] = [
     slug: "mensagem-da-juu-resolve-problemas",
     subtitle: "O 1% restante pede outra chamada.",
     content:
-      "Um estudo conduzido sem nenhuma neutralidade emocional constatou que uma mensagem da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.\n\nA metodologia incluiu conversa online, vontade de chamada e uma saudade de namoro web que nao colabora.\n\nO resultado foi unanime: mensagem da Juu deveria ser patrimonio oficial.",
+      "Um estudo conduzido sem nenhuma neutralidade emocional constatou que uma mensagem da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.\n\nA metodologia incluiu conversa online, vontade de chamada e uma saudade que nao colabora.\n\nO resultado foi unanime: mensagem da Juu deveria ser patrimonio oficial.",
     coverImageUrl: "/images/cat-rose-nap.png",
     categoryId: categories[4].id,
     authorId: authors[2].id,
@@ -245,8 +244,8 @@ export const timelineEvents: TimelineEvent[] = [
   },
   {
     id: "80000000-0000-4000-8000-000000000002",
-    title: "A primeira saudade web oficial",
-    description: "Quando a redacao percebeu que namoro web tambem vira pauta urgente.",
+    title: "A primeira saudade oficial",
+    description: "Quando a redacao percebeu que distancia tambem vira pauta urgente.",
     eventDate: "2026-01-01",
     imageUrl: "/images/cat-love-letters.png",
     createdAt: "2026-06-07T00:00:00.000Z",

@@ -57,7 +57,7 @@ insert into public.posts (
     'plantao-saudade-78-vezes',
     'Contador interno precisou ser recalibrado depois de nova crise de carinho.',
     'A situacao ficou seria por volta das 14h, quando o namorado olhou para o nada e percebeu que estava com saudade outra vez.' || E'\n\n' ||
-    'O Departamento de Fofura informou que o indice e considerado alto, mas esperado em casos de namoro web: Juliana por perto na memoria e longe na tela.' || E'\n\n' ||
+    'O Departamento de Fofura informou que o indice e considerado alto, mas esperado em uma historia que ainda acontece a distancia: Juliana por perto na memoria e longe na tela.' || E'\n\n' ||
     'A recomendacao oficial e simples: mensagem bonita, foto favorita e promessa de chamada quando der.',
     '/images/cat-love-letters.png',
     '44444444-4444-4444-8444-444444444444',
@@ -95,7 +95,7 @@ insert into public.posts (
     'mensagem-da-juu-resolve-problemas',
     'O 1% restante pede outra chamada.',
     'Um estudo conduzido sem nenhuma neutralidade emocional constatou que uma mensagem da Juu e capaz de reorganizar pensamentos, acalmar o mundo e fazer qualquer dia parecer mais leve.' || E'\n\n' ||
-    'A metodologia incluiu conversa online, vontade de chamada e uma saudade de namoro web que nao colabora.' || E'\n\n' ||
+    'A metodologia incluiu conversa online, vontade de chamada e uma saudade que nao colabora.' || E'\n\n' ||
     'O resultado foi unanime: mensagem da Juu deveria ser patrimonio oficial.',
     '/images/cat-rose-nap.png',
     '55555555-5555-4555-8555-555555555555',
@@ -151,7 +151,7 @@ on conflict (id) do update set quote = excluded.quote, active = excluded.active;
 
 insert into public.timeline_events (id, title, description, event_date, image_url) values
   ('80000000-0000-4000-8000-000000000001', 'O primeiro capitulo', 'Dezembro de 2025: o mes em que a conversa virou manchete principal.', '2025-12-01', '/images/cat-news-editor.png'),
-  ('80000000-0000-4000-8000-000000000002', 'A primeira saudade web oficial', 'Quando a redacao percebeu que namoro web tambem vira pauta urgente.', '2026-01-01', '/images/cat-love-letters.png'),
+  ('80000000-0000-4000-8000-000000000002', 'A primeira saudade oficial', 'Quando a redacao percebeu que distancia tambem vira pauta urgente.', '2026-01-01', '/images/cat-love-letters.png'),
   ('80000000-0000-4000-8000-000000000003', 'Primeiro encontro em pauta', 'A editoria ainda nao sabe quando vai acontecer, mas ja trata o assunto como cobertura especial.', '2026-06-01', '/images/cat-rose-nap.png')
 on conflict (id) do update set
   title = excluded.title,

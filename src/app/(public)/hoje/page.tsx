@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CalendarHeart, Cat, Newspaper } from "lucide-react";
 import { PublicPageHeader } from "@/components/public/PublicPageHeader";
 import { catGallery } from "@/data/feature-content";
-import { relationshipStartLabel, relationshipTypeLabel } from "@/data/seed";
+import { relationshipStartLabel } from "@/data/seed";
 import { getLoveQuotes, getPublishedPosts } from "@/lib/data";
 import { getDailyPost } from "@/lib/discovery";
 import { formatDate } from "@/lib/utils";
@@ -51,7 +51,7 @@ export default async function TodayPage() {
           <div className="public-panel p-6">
             <CalendarHeart className="h-6 w-6 text-[var(--wine)]" />
             <p className="font-editorial mt-4 text-[clamp(3rem,5vw,4.6rem)] leading-none">
-              {relationshipTypeLabel}
+              Nossa historia
             </p>
             <p className="mt-2 text-sm text-[var(--muted)]">desde {relationshipStartLabel}</p>
             <p className="mt-1 text-xs text-[var(--muted)]">primeiro encontro ainda sem data marcada</p>
