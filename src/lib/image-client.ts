@@ -1,0 +1,33 @@
+export async function compressImageFile(file: File, maxWidth = 1600, quality = 0.82) {
+  if (!file.type.startsWith("image/") || file.type === "image/gif") {
+    return file;
+  }
+
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, maxWidth / bitmap.width);
+  const width = Math.round(bitmap.width * scale);
+  const height = Math.round(bitmap.height * scale);
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext("2d");
+  if (!context) {
+    bitmap.close();
+    return file;
+  }
+
+  context.drawImage(bitmap, 0, 0, width, height);
+  bitmap.close();
+
+  const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/webp", quality));
+
+  if (!blob || blob.size >= file.size) {
+    return file;
+  }
+
+  return new File([blob], file.name.replace(/\.[^.]+$/, ".webp"), {
+    type: "image/webp",
+    lastModified: Date.now(),
+  });
+}

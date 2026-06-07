@@ -1,0 +1,78 @@
+import Image from "next/image";
+import Link from "next/link";
+import { CalendarHeart, Cat, Newspaper } from "lucide-react";
+import { PublicPageHeader } from "@/components/public/PublicPageHeader";
+import { catGallery } from "@/data/feature-content";
+import { relationshipStartDate } from "@/data/seed";
+import { getLoveQuotes, getPublishedPosts } from "@/lib/data";
+import { getDailyPost } from "@/lib/discovery";
+import { daysSince, formatDate } from "@/lib/utils";
+
+export const metadata = {
+  title: "Hoje no Juu News",
+};
+
+export const dynamic = "force-dynamic";
+
+export default async function TodayPage() {
+  const [posts, quotes] = await Promise.all([getPublishedPosts(), getLoveQuotes()]);
+  const today = new Date();
+  const dailyPost = getDailyPost(posts, today);
+  const daySeed = today.getUTCDate() + today.getUTCMonth() + today.getUTCFullYear();
+  const quote = quotes[daySeed % Math.max(1, quotes.length)]?.quote ?? "Toda noticia boa me lembra voce.";
+  const cat = catGallery[daySeed % catGallery.length];
+  const days = daysSince(relationshipStartDate, today);
+
+  return (
+    <div className="public-page">
+      <PublicPageHeader
+        title="Hoje no Juu News"
+        description="Um resumo vivo com noticia recomendada, gato do dia, frase e contador especial."
+        meta={formatDate(today)}
+      />
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        {dailyPost ? (
+          <Link
+            href={`/noticias/${dailyPost.slug}`}
+            className="public-card-hover group rounded-md border border-[var(--line)] bg-white p-6 shadow-sm"
+          >
+            <Newspaper className="h-6 w-6 text-[var(--wine)]" />
+            <p className="public-label mt-5 text-[var(--muted)]">Noticia do dia</p>
+            <h2 className="font-editorial mt-3 text-[clamp(2.8rem,5.5vw,4.8rem)] leading-[0.92] transition group-hover:text-[var(--wine)]">
+              {dailyPost.title}
+            </h2>
+            {dailyPost.subtitle ? (
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--ink-soft)]">{dailyPost.subtitle}</p>
+            ) : null}
+          </Link>
+        ) : null}
+
+        <section className="grid gap-6">
+          <div className="public-panel p-6">
+            <CalendarHeart className="h-6 w-6 text-[var(--wine)]" />
+            <p className="font-editorial mt-4 text-6xl leading-none">{days.toLocaleString("pt-BR")}</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">dias desde 14.08.2016</p>
+          </div>
+
+          <div className="paper-texture public-soft-panel p-6 shadow-sm">
+            <p className="public-label text-[var(--wine)]">Frase de hoje</p>
+            <blockquote className="font-editorial mt-4 text-4xl italic leading-tight">&quot;{quote}&quot;</blockquote>
+          </div>
+        </section>
+      </div>
+
+      <section className="public-panel mt-6 grid gap-5 p-6 md:grid-cols-[18rem_1fr]">
+        <div className="relative aspect-[1.1] overflow-hidden rounded-md bg-[var(--rose-soft)]">
+          <Image src={cat.src} alt="" fill sizes="320px" className="object-cover" />
+        </div>
+        <div className="self-center">
+          <Cat className="h-6 w-6 text-[var(--wine)]" />
+          <p className="public-label mt-4 text-[var(--muted)]">Gato do dia</p>
+          <h2 className="font-editorial mt-2 text-5xl leading-none">{cat.title}</h2>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--ink-soft)]">{cat.description}</p>
+        </div>
+      </section>
+    </div>
+  );
+}
