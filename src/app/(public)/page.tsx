@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, CalendarHeart, Cat, Radio, Search, ShieldCheck } from "lucide-react";
+import { ArrowRight, CalendarHeart, Cat, Radio, Search, ShieldCheck, Sparkles } from "lucide-react";
 import { ArticleCard } from "@/components/public/ArticleCard";
 import { HomeTools } from "@/components/public/HomeTools";
 import { SectionTitle } from "@/components/public/SectionTitle";
 import { SurpriseButton } from "@/components/public/SurpriseButton";
 import { relationshipStartLabel } from "@/data/seed";
 import { getCategories, getLoveQuotes, getPublishedPosts } from "@/lib/data";
-import { getAllTags, getCategoryCounts, getDailyPost } from "@/lib/discovery";
+import { getDailyEdition, getDailyPostOrder } from "@/lib/daily-edition";
+import { getAllTags, getCategoryCounts } from "@/lib/discovery";
 
 export const dynamic = "force-dynamic";
 
@@ -17,10 +18,17 @@ export default async function HomePage() {
     getLoveQuotes(),
   ]);
 
-  const lead = posts.find((post) => post.breakingNews) ?? posts[0];
-  const recent = posts.filter((post) => post.id !== lead?.id).slice(0, 4);
-  const featured = posts.filter((post) => post.featured).slice(0, 3);
-  const dailyPost = getDailyPost(posts);
+  const today = new Date();
+  const dailyEdition = getDailyEdition(today);
+  const orderedPosts = getDailyPostOrder(posts, today, "home-posts");
+  const dailyPost = orderedPosts[0] ?? null;
+  const lead = dailyPost ?? posts.find((post) => post.breakingNews) ?? posts[0];
+  const recent = orderedPosts.filter((post) => post.id !== lead?.id).slice(0, 4);
+  const featured = getDailyPostOrder(
+    posts.filter((post) => post.featured),
+    today,
+    "home-featured",
+  ).slice(0, 3);
   const tags = getAllTags(posts).slice(0, 8);
   const categoryCounts = getCategoryCounts(posts, categories);
 
@@ -55,12 +63,12 @@ export default async function HomePage() {
             Plantao Juu
           </p>
           <p className="public-label text-[var(--muted)]">Agora ha pouco</p>
-          <h2 className="font-editorial mt-3 text-[2rem] leading-[0.98]">Alerta de saudade nivel maximo!</h2>
+          <h2 className="font-editorial mt-3 text-[2rem] leading-[0.98]">{dailyEdition.label}</h2>
           <p className="mt-4 text-sm leading-6 text-[var(--ink-soft)]">
-            Causada por distancia e pensamentos em voce.
+            {dailyEdition.note}
           </p>
           <Link
-            href="/declaracao"
+            href="/hoje"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--wine)]"
           >
             Ver detalhes <ArrowRight className="h-4 w-4" />
@@ -93,6 +101,30 @@ export default async function HomePage() {
           </div>
           <SurpriseButton posts={posts} quotes={quotes} />
         </div>
+
+        <section className="public-panel mb-5 p-5 sm:p-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="public-label text-[var(--wine)]">{dailyEdition.label}</p>
+            <span className="rounded-full border border-[var(--line)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted)]">
+              {dailyEdition.category}
+            </span>
+          </div>
+          <h1 className="font-editorial mt-4 max-w-4xl text-[clamp(2.6rem,5vw,5.3rem)] leading-[0.94] text-[var(--ink)]">
+            {dailyEdition.headline}
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--ink-soft)]">{dailyEdition.subtitle}</p>
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <Link href="/hoje" className="public-button focus-ring">
+              <Sparkles className="h-4 w-4" />
+              Ver edicao de hoje
+            </Link>
+            {dailyEdition.tags.map((tag) => (
+              <Link key={tag} href={`/buscar?tag=${encodeURIComponent(tag)}`} className="public-chip">
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {lead ? <ArticleCard post={lead} variant="lead" /> : null}
 
@@ -157,7 +189,7 @@ export default async function HomePage() {
           <p className="mt-2 text-sm text-[var(--muted)]">sem dia exato, mas com pauta fixa</p>
         </section>
 
-        <HomeTools quotes={quotes} />
+        <HomeTools quotes={quotes} dailyEdition={dailyEdition} />
 
         {dailyPost ? (
           <section className="public-panel p-5">

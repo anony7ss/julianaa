@@ -1,3 +1,5 @@
+import type { QuizQuestion } from "@/types/content";
+
 export const catGallery = [
   {
     src: "/images/cat-breaking-news.png",
@@ -51,7 +53,7 @@ export const loveLetters = [
   },
 ];
 
-export const quizQuestions = [
+export const quizQuestions: QuizQuestion[] = [
   {
     question: "Qual editoria melhor combina com uma saudade repentina?",
     options: ["Plantao Saudade", "Juliana Awards", "Momentos Historicos"],

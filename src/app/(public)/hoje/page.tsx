@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarHeart, Cat, Newspaper } from "lucide-react";
+import { CalendarHeart, Cat, Newspaper, Sparkles } from "lucide-react";
 import { PublicPageHeader } from "@/components/public/PublicPageHeader";
 import { catGallery } from "@/data/feature-content";
 import { relationshipStartLabel } from "@/data/seed";
 import { getLoveQuotes, getPublishedPosts } from "@/lib/data";
-import { getDailyPost } from "@/lib/discovery";
+import { getDailyEdition, getDailyPostOrder } from "@/lib/daily-edition";
 import { formatDate } from "@/lib/utils";
 
 export const metadata = {
@@ -17,10 +17,11 @@ export const dynamic = "force-dynamic";
 export default async function TodayPage() {
   const [posts, quotes] = await Promise.all([getPublishedPosts(), getLoveQuotes()]);
   const today = new Date();
-  const dailyPost = getDailyPost(posts, today);
-  const daySeed = today.getUTCDate() + today.getUTCMonth() + today.getUTCFullYear();
-  const quote = quotes[daySeed % Math.max(1, quotes.length)]?.quote ?? "Toda noticia boa me lembra voce.";
-  const cat = catGallery[daySeed % catGallery.length];
+  const dailyEdition = getDailyEdition(today);
+  const dailyPost = getDailyPostOrder(posts, today, "today-posts")[0] ?? null;
+  const quote =
+    quotes[dailyEdition.issueNumber % Math.max(1, quotes.length)]?.quote ?? "Toda noticia boa me lembra voce.";
+  const cat = getDailyPostOrder(catGallery, today, "today-cats")[0];
 
   return (
     <div className="public-page">
@@ -29,6 +30,27 @@ export default async function TodayPage() {
         description="Um resumo vivo com noticia recomendada, gato do dia, frase e contador especial."
         meta={formatDate(today)}
       />
+
+      <section className="paper-texture public-soft-panel mt-8 p-6 shadow-sm">
+        <div className="flex flex-wrap items-center gap-2">
+          <Sparkles className="h-5 w-5 text-[var(--wine)]" />
+          <p className="public-label text-[var(--wine)]">{dailyEdition.label}</p>
+          <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--muted)]">
+            {dailyEdition.category}
+          </span>
+        </div>
+        <h2 className="font-editorial mt-5 max-w-4xl text-[clamp(2.8rem,6vw,5.8rem)] leading-[0.92]">
+          {dailyEdition.generatedPost.title}
+        </h2>
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--ink-soft)]">
+          {dailyEdition.generatedPost.subtitle}
+        </p>
+        <div className="mt-6 grid gap-4 border-t border-[var(--line)] pt-5 text-base leading-8 text-[var(--ink-soft)] md:grid-cols-3">
+          {dailyEdition.generatedPost.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         {dailyPost ? (

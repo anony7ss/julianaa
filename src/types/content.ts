@@ -46,6 +46,31 @@ export type LoveQuote = {
   createdAt: string;
 };
 
+export type QuizQuestion = {
+  question: string;
+  options: string[];
+  answer: string;
+};
+
+export type DailyEdition = {
+  dateKey: string;
+  issueNumber: number;
+  label: string;
+  mood: string;
+  headline: string;
+  subtitle: string;
+  note: string;
+  category: string;
+  tags: string[];
+  generatedPost: {
+    title: string;
+    subtitle: string;
+    body: string[];
+  };
+  quizQuestion: QuizQuestion;
+  headlinePool: string[];
+};
+
 export type TimelineEvent = {
   id: string;
   title: string;

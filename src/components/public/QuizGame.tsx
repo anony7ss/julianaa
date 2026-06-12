@@ -2,17 +2,23 @@
 
 import { useMemo, useState } from "react";
 import { CheckCircle2, RotateCcw } from "lucide-react";
-import { quizQuestions } from "@/data/feature-content";
+import { quizQuestions as defaultQuizQuestions } from "@/data/feature-content";
+import type { QuizQuestion } from "@/types/content";
 
-export function QuizGame() {
+type QuizGameProps = {
+  questions?: QuizQuestion[];
+};
+
+export function QuizGame({ questions = defaultQuizQuestions }: QuizGameProps) {
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const quizQuestions = questions.length > 0 ? questions : defaultQuizQuestions;
   const score = useMemo(
     () =>
       quizQuestions.reduce(
         (total, question, index) => total + (answers[index] === question.answer ? 1 : 0),
         0,
       ),
-    [answers],
+    [answers, quizQuestions],
   );
   const finished = Object.keys(answers).length === quizQuestions.length;
 
